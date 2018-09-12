@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulario</title>
+</head>
+<body>
+	{% if info_enviado %}
+	<h1>Formulario</h1>
+		<h2>La informacion suministrada es:</h2>
+	{{email}}
+	{{title}}
+	{{text}}
+	{% else %}
+<form action="" method="POST">
+	{% csrf_token %}
+	{{formulario.as_p}}
+	<button type="submit" class="btn btn-outline-dark">Enviar</button>
+</form>
+	{% endif %}
+
+
+</body>
+</html>

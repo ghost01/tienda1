@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block titulo %}
+{% endblock %}
+{% block content %}
+	<h1>Lista de Productos: </h1>
+	{% for p in lista %}
+		
+		<table class="table table-striped">
+  <thead>
+    <tr>
+
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Vista previa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{ p.nombre }}</td>
+      <td>{{ p.precio }}</td>
+      <td>{{ p.stock }}</td>
+      <td>{{ p.marca }}</td>
+      <td><img src="/media/{{ p.imagen}}" width="62" height="62">
+      {% if user.is_authenticated and user.is_superuser %}
+      		 <a href="/ver_producto/{{p.id}}">Ver detalles</a>
+			 <a href="/editar_producto/{{ p.id }}">Editar</a>
+			 <a href="/eliminar_producto/{{ p.id }}">Eliminar</a>
+		{% endif %}</td>
+     
+    </tr>
+    
+  </tbody>
+</table>
+	{% endfor %}
+{% endblock %}
