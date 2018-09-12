@@ -1,6 +1,0 @@
-Django==2.0.7
-djangorestframework==3.8.2
-gunicorn==19.9.0
-Pillow==5.2.0
-pytz==2018.4
-virtualenv==16.0.0
